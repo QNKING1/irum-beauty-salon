@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<!-- Demo for Irum Beauty salon (Sanghar). -->
+<!-- Assumed salon type: ladies beauty parlour / bridal &amp; makeup (category: Beauty salon; unconfirmed). -->
+<!-- Hours unknown: fallback line used; all services are assumed offerings to confirm with owner; no facts invented. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Irum Beauty salon — Sanghar</title>
+<meta name="theme-color" content="#4B3027">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Outfit:wght@400;600;800&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Cdefs%3E%3ClinearGradient%20id%3D%27g%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%271%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%25%27%20stop-color%3D%27%234B3027%27%2F%3E%3Cstop%20offset%3D%27100%25%27%20stop-color%3D%27%23D99A9A%27%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D%27M32%204%20C17%204%204%2017%204%2032%20s13%2028%2028%2028%2028%2013%2028-28%20S47%204%2032%204%27%20fill%3D%27none%27%20stroke%3D%27%234B3027%27%20stroke-width%3D%273.5%27%20stroke-linecap%3D%27round%27%2F%3E%3Ccircle%20cx%3D%2732%27%20cy%3D%2732%27%20r%3D%271.5%27%20fill%3D%27%23D99A9A%27%2F%3E%3Ctext%20x%3D%2732%27%20y%3D%2743%27%20font-family%3D%27Gilda%20Display%2C%20serif%27%20font-size%3D%2726%27%20text-anchor%3D%27middle%27%20fill%3D%27%234B3027%27%20letter-spacing%3D%273%27%3EIB%3C%2Ftext%3E%3Cpath%20d%3D%27M11%2011%20q-3%20-3%20-6%200%20M53%2053%20q%203%203%206%200%20M11%2053%20q-3%203%20-6%200%20M53%2011%20q%203%20-3%206%200%27%20fill%3D%27none%27%20stroke%3D%27%23D99A9A%27%20stroke-width%3D%271.6%27%20stroke-linecap%3D%27round%27%2F%3E%3C%2Fsvg%3E">
+<style>
+  :root {
+    --mocha: #4B3027;
+    --mocha-soft: #6B4A36;
+    --rose: #D99A9A;
+    --rose-light: #F0C4C4;
+    --cream: #FFF6EE;
+    --cream-soft: #FBEFD8;
+    --ink: #3B2A24;
+    --text: #5A4438;
+    --white: #FFFFFF;
+    --font-head: 'Gilda Display', serif;
+    --font-body: 'Outfit', sans-serif;
+    --font-urdu: 'Noto Nastaliq Urdu', serif;
+    --radius: 16px;
+    --shadow: 0 14px 40px -12px rgba(75, 48, 39, 0.22);
+    --shadow-rose: 0 14px 40px -12px rgba(217, 154, 154, 0.25);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+  body { overflow-x: hidden; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+    .marquee-track { animation: none !important; }
+    .typing { display: none !important; }
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-tap-highlight-color: transparent;
+  }
+  /* ---------- Ribbon ---------- */
+  .ribbon {
+    background: var(--mocha);
+    color: var(--cream);
+    font-size: 11.5px;
+    letter-spacing: 0.14em;
+    text-align: center;
+    padding: 6px 16px;
+    font-family: var(--font-body);
+    font-weight: 600;
+  }
+  /* ---------- Header ---------- */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    background: var(--cream);
+    border-bottom: 1px solid #E8DBC8;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: 0 4px 16px -6px rgba(75, 48, 39, 0.08);
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo svg { width: 42px; height: 42px; display: block; }
+  .logomark { font-family: var(--font-head); font-size: 17px; color: var(--mocha); letter-spacing: 0.5px; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 15px;
+    text-decoration: none;
+    padding: 11px 22px;
+    min-height: 48px;
+    transition: transform 0.18s ease, opacity 0.18s ease;
+  }
+  .btn:active { transform: scale(0.96); }
+  .btn:focus-visible { outline: 3px solid var(--rose-light); outline-offset: 2px; }
+  .btn-primary {
+    background: var(--mocha);
+    color: var(--white);
+  }
+  .btn-primary:hover { background: var(--ink); }
+  .btn-outline {
+    background: transparent;
+    color: var(--mocha);
+    border: 2px solid var(--mocha);
+  }
+  .btn-outline:hover { background: var(--mocha); color: var(--white); }
+  .btn-sm {
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: 800;
+    min-height: 40px;
+  }
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    padding: 40px 18px 30px;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(600px 700px at 80% -10%, rgba(217, 154, 154, 0.18), transparent 55%),
+                radial-gradient(500px 500px at 20% 110%, rgba(75, 48, 39, 0.09), transparent 50%);
+  }
+  .hero p, .hero h1 { margin: 0; }
+  .kicker {
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    color: var(--rose);
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .hero h1 {
+    font-family: var(--font-head);
+    font-size: clamp(26px, 8vw, 42px);
+    line-height: 1.12;
+    color: var(--mocha);
+    letter-spacing: 0.2px;
+  }
+  .hero-sub {
+    margin-top: 12px;
+    font-size: 16px;
+    color: var(--text);
+    max-width: 28ch;
+  }
+  .urdu {
+    font-family: var(--font-urdu);
+    font-size: 24px;
+    line-height: 2.2;
+    color: var(--ink);
+    margin: 14px 0 10px;
+    direction: rtl;
+    text-align: right;
+    font-weight: 600;
+  }
+  .city {
+    font-size: 14px;
+    letter-spacing: 0.18em;
+    color: var(--mocha-soft);
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .rating {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    background: var(--white);
+    border: 1px solid #E8DBC8;
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-weight: 800;
+    color: var(--mocha);
+    font-size: 15px;
+    box-shadow: var(--shadow);
+    display: inline-flex;
+  }
+  .rating .star { color: var(--rose); font-size: 16px; line-height: 1; }
+  .hero-actions {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  /* phone mockup */
+  .phone-wrap {
+    margin: 26px auto 0;
+    width: min(290px, 92vw);
+    aspect-ratio: 9 / 17.5;
+    position: relative;
+  }
+  .phone {
+    position: absolute;
+    inset: 0;
+    background: #141414;
+    border: 10px solid #262626;
+    border-radius: 46px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.55);
+    overflow: hidden;
+  }
+  .phone::before {
+    content: '';
+    position: absolute;
+    top: 14px; left: 50%; transform: translateX(-50%);
+    width: 110px; height: 16px;
+    background: #333; border-radius: 8px;
+  }
+  .screen {
+    position: absolute;
+    inset: 14px;
+    background: #F7F2EC;
+    border-radius: 36px;
+    overflow: hidden;
+    padding: 16px 14px 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  .chat-head {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
+  }
+  .chat-avatar {
+    width: 30px; height: 30px; border-radius: 50%; background: var(--rose);
+    display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; color: var(--white);
+  }
+  .chat-head .name { font-size: 13px; font-weight: 800; color: #222; }
+  .chat-head .time { margin-left: auto; font-size: 11px; color: #888; }
+  .bubble {
+    max-width: 82%;
+    padding: 9px 14px;
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 4px 0;
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  .bubble.me { align-self: flex-end; background: var(--rose); color: #3B2323; border-bottom-right-radius: 4px; }
+  .bubble.them { align-self: flex-start; background: var(--mocha); color: var(--white); border-bottom-left-radius: 4px; }
+  .typing {
+    align-self: flex-start;
+    display: flex; gap: 4px; padding: 6px 14px; margin: 4px 0;
+    opacity: 0;
+  }
+  .dot { width: 8px; height: 8px; background: #999; border-radius: 50%; }
+  .dot:nth-child(1) { animation: bounce 1.4s infinite ease-in-out; }
+  .dot:nth-child(2) { animation: bounce 1.4s infinite ease-in-out 0.2s; }
+  .dot:nth-child(3) { animation: bounce 1.4s infinite ease-in-out 0.4s; }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  /* ---------- Marquee ---------- */
+  .marquee {
+    background: var(--mocha);
+    overflow: hidden;
+    padding: 10px 0;
+  }
+  .marquee-track {
+    display: flex;
+    gap: 40px;
+    animation: marquee 24s linear infinite;
+    white-space: nowrap;
+    will-change: transform;
+  }
+  .marquee-item {
+    font-family: var(--font-head);
+    font-size: clamp(16px, 4vw, 22px);
+    color: var(--rose-light);
+    letter-spacing: 1.4px;
+    opacity: 0.85;
+    padding: 0 4px;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  /* ---------- Menu ---------- */
+  .menu { padding: 40px 18px; background: var(--cream-soft); }
+  .menu-note {
+    text-align: center;
+    font-size: 14px;
+    color: var(--mocha-soft);
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 26px;
+  }
+  .menu-group { margin-bottom: 34px; }
+  .menu-group:last-child { margin-bottom: 10px; }
+  .menu-group-title {
+    font-family: var(--font-head);
+    font-size: 20px;
+    color: var(--mocha);
+    margin-bottom: 14px;
+    padding-left: 8px;
+    border-left: 4px solid var(--rose);
+  }
+  .menu-item {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    border-bottom: 1px dotted #C9B7A0;
+    padding: 10px 4px;
+  }
+  .menu-name { font-weight: 700; color: var(--ink); font-size: 16px; }
+  .menu-desc { color: var(--text); font-size: 14px; margin-right: 6px; }
+  .menu-leader { flex: 1; border-bottom: 1px dotted #C9B7A0; margin: 0 6px; height: 0.85em; }
+  .menu-book a {
+    color: var(--rose);
+    font-weight: 800;
+    font-size: 13px;
+    text-decoration: none;
+    border-bottom: 1.5px solid transparent;
+  }
+  .menu-book a:hover { border-bottom-color: var(--rose); }
+  /* ---------- Feature band ---------- */
+  .feature {
+    background: var(--mocha);
+    color: var(--cream);
+    padding: 34px 18px 40px;
+    border-radius: 0 0 34px 34px;
+    position: relative;
+    overflow: hidden;
+  }
+  .feature::before {
+    content: ''; position: absolute; top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    background: radial-gradient(circle, rgba(217,154,154,0.25), transparent 60%);
+    border-radius: 50%;
+  }
+  .feature h2 {
+    font-family: var(--font-head);
+    font-size: clamp(24px, 7vw, 34px);
+    color: var(--white);
+    margin: 0 0 10px;
+    line-height: 1.2;
+  }
+  .feature p {
+    color: #EAD8CC;
+    font-size: 15.5px;
+    max-width: 30ch;
+    margin: 0 0 18px;
+    line-height: 1.6;
+  }
+  /* ---------- Steps ---------- */
+  .steps { padding: 40px 18px; background: var(--cream); }
+  .steps-title {
+    font-family: var(--font-head);
+    font-size: 26px;
+    color: var(--mocha);
+    text-align: center;
+    margin: 0 0 8px;
+  }
+  .steps-sub {
+    text-align: center;
+    color: var(--text);
+    margin-bottom: 30px;
+    font-size: 15px;
+  }
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .step:last-child { margin-bottom: 0; }
+  .step-num {
+    width: 32px; height: 32px;
+    background: var(--mocha);
+    color: var(--white);
+    border-radius: 50%;
+    font-weight: 800;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-family: var(--font-body);
+  }
+  .step-txt strong { color: var(--mocha); font-family: var(--font-head); }
+  .step-txt p { margin: 2px 0 0; color: var(--text); font-size: 14.5px; }
+  /* ---------- Booking form ---------- */
+  .booking { padding: 40px 18px; background: var(--cream-soft); }
+  .booking-title {
+    font-family: var(--font-head);
+    font-size: 26px;
+    color: var(--mocha);
+    text-align: center;
+    margin: 0 0 8px;
+  }
+  .booking-sub {
+    text-align: center;
+    color: var(--text);
+    margin-bottom: 24px;
+    font-size: 15px;
+  }
+  .form {
+    background: var(--white);
+    padding: 22px 18px 26px;
+    border-radius: 20px;
+    border: 1px solid #E8DBC8;
+    box-shadow: var(--shadow);
+    max-width: 420px;
+    margin: 0 auto;
+  }
+  .form label {
+    display: block;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--mocha);
+    margin-bottom: 7px;
+    text-transform: uppercase;
+  }
+  .form input, .form select, .form textarea {
+    width: 100%;
+    min-height: 48px;
+    padding: 10px 14px;
+    border: 1px solid #D9C9B2;
+    border-radius: 10px;
+    background: var(--cream);
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .form input:focus, .form select:focus, .form textarea:focus {
+    outline: 3px solid var(--rose-light);
+    border-color: var(--rose);
+  }
+  .form textarea { min-height: 90px; resize: vertical; }
+  .form .note {
+    font-size: 12.5px;
+    color: #8C7460;
+    margin-bottom: 18px;
+  }
+  .err { color: #D12B3A; font-size: 12.5px; margin-top: -10px; margin-bottom: 14px; display: none; }
+  .form .submit-wrap { text-align: center; margin-top: 6px; }
+  .form .msg { margin-top: 12px; text-align: center; font-size: 14px; color: var(--mocha-soft); font-weight: 700; display: none; }
+  /* ---------- Visit ---------- */
+  .visit { padding: 40px 18px 50px; background: var(--cream); }
+  .visit-title {
+    font-family: var(--font-head);
+    font-size: clamp(26px, 8vw, 36px);
+    color: var(--mocha);
+    text-align: center;
+    margin: 0 0 6px;
+    line-height: 1.15;
+  }
+  .visit-sub { text-align: center; color: var(--text); margin-bottom: 26px; font-size: 15px; }
+  .address-block {
+    text-align: center;
+    margin-bottom: 26px;
+  }
+  .address-big {
+    font-family: var(--font-head);
+    font-size: clamp(20px, 5.5vw, 28px);
+    color: var(--ink);
+    font-weight: 800;
+    line-height: 1.4;
+  }
+  .address-big span { color: var(--rose); }
+  .pluscode {
+    margin-top: 6px;
+    font-size: 14px;
+    color: var(--text);
+    font-weight: 700;
+    letter-spacing: 0.6px;
+  }
+  .hours-line {
+    margin-top: 12px;
+    font-size: 14.5px;
+    color: #6E5A4C;
+    font-weight: 600;
+  }
+  .visit-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  .map-wrap {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto 24px;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid #E8DBC8;
+    background: #F3E8D4;
+  }
+  /* ---------- Footer ---------- */
+  footer {
+    background: var(--mocha);
+    color: var(--cream);
+    padding: 40px 18px 30px;
+    border-top: 1px solid #6B4A36;
+  }
+  .footer-inner { max-width: 420px; margin: 0 auto; }
+  .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+  .footer-logo svg { width: 40px; height: 40px; }
+  .footer-name { font-family: var(--font-head); font-size: 19px; color: var(--white); letter-spacing: 1px; }
+  .footer-contact { font-size: 14px; color: #E8DBC8; line-height: 1.7; margin-bottom: 18px; }
+  .footer-contact a { color: var(--rose-light); text-decoration: none; }
+  .footer-contact a:hover { text-decoration: underline; }
+  .footer-demo {
+    font-size: 11.5px;
+    color: #C9B7A0;
+    text-align: center;
+    margin-bottom: 22px;
+  }
+  .footer-cta { display: flex; gap: 10px; justify-content: center; }
+  /* ---------- Floating WhatsApp ---------- */
+  .float-wa {
+    position: fixed;
+    bottom: 22px;
+    right: 20px;
+    z-index: 100;
+  }
+  .float-wa .btn { min-height: 52px; padding: 14px 20px; box-shadow: var(--shadow-rose); }
+  .float-wa .btn::after { content: ''; width: 0; height: 0; }
+  /* ---------- Reveal utilities ---------- */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.revealed { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.12s; }
+  .reveal-delay-2 { transition-delay: 0.28s; }
+  .reveal-delay-3 { transition-delay: 0.44s; }
+  .chat-visible { opacity: 1 !important; transform: translateY(0) !important; transition: opacity 0.5s ease, transform 0.5s ease; }
+</style>
+</head>
+<body>
+
+  <div class="ribbon">Demo preview - made for Irum Beauty salon</div>
+
+  <header class="header">
+    <div class="logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+        <defs>
+          <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#4B3027"/>
+            <stop offset="100%" stop-color="#D99A9A"/>
+          </linearGradient>
+        </defs>
+        <path d="M32 4 C17 4 4 17 4 32 s13 28 28 28 28 13 28-28 S47 4 32 4" fill="none" stroke="#4B3027" stroke-width="3.5" stroke-linecap="round"/>
+        <circle cx="32" cy="32" r="1.5" fill="#D99A9A"/>
+        <text x="32" y="43" font-family="Gilda Display, serif" font-size="26" text-anchor="middle" fill="#4B3027" letter-spacing="3">IB</text>
+        <path d="M11 11 q-3 -3 -6 0 M53 53 q 3 3 6 0 M11 53 q-3 3 -6 0 M53 11 q 3 -3 6 0" fill="none" stroke="#D99A9A" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      <span class="logomark">Irum Beauty</span>
+    </div>
+    <a href="https://wa.me/923313037829?text=Assalam%20o%20Alaikum%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Irum%20Beauty%20salon." class="btn btn-primary">Book on WhatsApp</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <span class="kicker reveal reveal-delay-1">Beauty &amp; Bridal</span>
+        <h1 class="reveal reveal-delay-2">Irum Beauty salon, Sanghar — book your appointment in one WhatsApp message</h1>
+        <p class="city reveal reveal-delay-3">Sanghar, Sindh</p>
+        <p class="urdu reveal reveal-delay-2">خوبصورتی، آپ کی پہچان</p>
+        <div class="rating reveal reveal-delay-3">5.0 <span class="star" aria-hidden="true">★</span> <span class="reviews">1 review</span></div>
+        <div class="hero-actions reveal reveal-delay-3">
+          <a href="https://wa.me/923313037829?text=Assalam%20o%20Alaikum%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Irum%20Beauty%20salon." class="btn btn-primary">Book on WhatsApp</a>
+          <a href="tel:+923313037829" class="btn btn-outline">Call now</a>
+        </div>
+      </div>
+      <div class="phone-wrap reveal reveal-delay-3">
+        <div class="phone">
+          <div class="screen">
+            <div class="chat-head">
+              <div class="chat-avatar">IB</div>
+              <div class="name">Irum Beauty salon</div>
+              <div class="time">now</div>
+            </div>
+            <div id="chat" style="flex:1; overflow-y: auto; padding-bottom: 8px;">
+              <div class="bubble them reveal" id="bubble-customer">Assalam o Alaikum, I would like to book an appointment at Irum Beauty salon.</div>
+              <div class="typing" id="typing">
+                <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+              </div>
+              <div class="bubble them" id="bubble-reply">Assalam o Alaikum! We have received your request.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="marquee reveal reveal-delay-3">
+      <div class="marquee-track" id="marquee">
+        <span class="marquee-item">Haircut</span><span class="marquee-item">·</span><span class="marquee-item">Hair styling</span><span class="marquee-item">·</span><span class="marquee-item">Hair color</span><span class="marquee-item">·</span><span class="marquee-item">Facial</span><span class="marquee-item">·</span><span class="marquee-item">Skin cleanup</span><span class="marquee-item">·</span><span class="marquee-item">Bridal makeup</span><span class="marquee-item">·</span><span class="marquee-item">Party makeup</span><span class="marquee-item">·</span><span class="marquee-item">Eyebrow threading</span><span class="marquee-item">·</span><span class="marquee-item">Mehendi</span><span class="marquee-item">·</span><span class="marquee-item">Manicure</span><span class="marquee-item">·</span>
+        <span class="marquee-item">Haircut</span><span class="marquee-item">·</span><span class="marquee-item">Hair styling</span><span class="marquee-item">·</span><span class="marquee-item">Hair color</span><span class="marquee-item">·</span><span class="marquee-item">Facial</span><span class="marquee-item">·</span><span class="marquee-item">Skin cleanup</span><span class="marquee-item">·</span><span class="marquee-item">Bridal makeup</span><span class="marquee-item">·</span><span class="marquee-item">Party makeup</span><span class="marquee-item">·</span><span class="marquee-item">Eyebrow threading</span><span class="marquee-item">·</span><span class="marquee-item">Mehendi</span><span class="marquee-item">·</span><span class="marquee-item">Manicure</span><span class="marquee-item">·</span>
+      </div>
+    </section>
+
+    <section class="menu reveal reveal-delay-3">
+      <p class="menu-note">Prices on WhatsApp</p>
+      <div class="menu-group">
+        <h3 class="menu-group-title">Hair</h3>
+        <div class="menu-item">
+          <span class="menu-name">Haircut</span>
+          <span class="menu-desc">Trim and shape for women and girls</span>
+          <span class="menu-leader"></span>
+          <span class="menu-book"><a href="https://wa.me/923313037829?text=Assalam%20o%20Alaikum%2C%20I%20would%20like%20to%20book%20a%20Haircut%20at%20Irum%20Beauty%20salon.">Book</a></span>
+        </div>
+        <div class="menu-item">
+          <span class="menu-name">Hair styling</span>
+          <span class="menu-desc">Blow dry and party-ready styling</span>
+          <span class="menu-leader"></span>
+          <span class="menu-book"><a href="https://wa.me/923313037829?text=Assalam%20o%20Alaikum%2C%20I%20would%20like%20to%20book%20Hair%20styling%20at%20Irum%20Beauty%20salon.">Book</a></span>
+        </div>
+        <div class="menu-item">
+          <span class="menu-name">Hair color</span>
+          <span class="menu-desc">Highlights and full color</span>
+          <span class="menu-leader"></span>
+          <span class="menu-book"><a href="https://wa.me/923313037829?text=Assalam%20o%20Alaikum%2C%20I%20would%20like%20to%20book%20Hair%20color%20at%20Irum%20Beauty%20salon.">Book</a></span>
+        </div>
+      </div>
+      <div class="menu-group">
+        <h3 class="menu-group-title">Skin and Facials</h3>
+        <div class="menu-item">
+          <span class="menu-name">Facial</span>
+          <span class="menu-desc">Deep cleanse and glow facial</span>
+          <span class="menu-leader"></span>
+          <span class="menu-book"><a href="https://wa.me/923313037829?text=Assalam%20o%20Alaikum%2C%20I%20would%20like%20to%20book%20a%20Facial%20at%20Irum%20Beauty%20salon.">Book</a></span>
+        </div>
+        <div class="menu-item">
+          <span class="menu-name">Skin cleanup</span>
+          <span class="menu-desc">Gentle cleanup for clear skin</span>
+          <span class="menu-leader"></span>
+          <span class="menu-book"><a href="https://wa.me/923313037829?text=Assalam%20o%20Alaikum%2C%20I%20would%20like%20to%20book%20Skin%20cleanup%20at%20Irum%20Beauty%20salon.">Book</a></span>
+        </div>
+      </div>
+      <div class="menu-group">
+        <h3 class="menu-group-title">Makeup and Bridal</h3>
+        <div class="menu-item">
+          <span class="menu-name">Bridal makeup</span>
+          <span class="menu-desc">Full bridal look on your special day</span>
+          <span class="menu-leader"></span>
+          <span class="menu-book"><a href="https://wa.me/923313037829?text=Assalam%20o%20Alaikum%2C%20I%20would%20like%20to%20book%20Bridal%20makeup%20at%20Irum%20Beauty%20salon.">Book</a></span>
+        </div>
+        <div class="menu-item">
+          <span class="menu-name">Party makeup</span>
+          <span class="menu-desc">Evening and event makeup</span>
+          <span class="menu-leader"></span>
+          <span class="menu-book"><a href="https://wa.me/923313037829?text=Assalam%20o%20Alaikum%2C%20I%20would%20like%20to%20book%20Party%20makeup%20at%20Irum%20Beauty%20salon.">Book</a></span>
+        </div>
+      </div>
+      <div class="menu-group">
+        <h3 class="menu-group-title">Threading / Waxing / Hands and Feet</h3>
+        <div class="menu-item">
+          <span class="menu-name">Eyebrow threading</span>
+          <span class="menu-desc">Precise brow shaping</span>
+          <span class="menu-leader"></span>
+          <span class="menu-book"><a href="https://wa.me/923313037829?text=Assalam%20o%20Alaikum%2C%20I%20would%20like%20to%20book%20Eyebrow%20threading%20at%20Irum%20Beauty%20salon.">Book</a></span>
+        </div>
+        <div class="menu-item">
+          <span class="menu-name">Mehendi</span>
+          <span class="menu-desc">Henna designs for hands</span>
+          <span class="menu-leader"></span>
+          <span class="menu-book"><a href="https://wa.me/923313037829?text=Assalam%20o%20Alaikum%2C%20I%20would%20like%20to%20book%20Mehendi%20at%20Irum%20Beauty%20salon.">Book</a></span>
+        </div>
+        <div class="menu-item">
+          <span class="menu-name">Manicure</span>
+          <span class="menu-desc">Nail care and polish</span>
+          <span class="menu-leader"></span>
+          <span class="menu-book"><a href="https://wa.me/923313037829?text=Assalam%20o%20Alaikum%2C%20I%20would%20like%20to%20book%20Manicure%20at%20Irum%20Beauty%20salon.">Book</a></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature reveal reveal-delay-3">
+      <h2>Bridal and Party Looks</h2>
+      <p>Planning your big day or a special evening? Message us on WhatsApp to ask about bridal dates, party makeup, and availability — no commitment needed.</p>
+      <a href="https://wa.me/923313037829?text=Assalam%20o%20Alaikum%2C%20I%20saw%20your%20website%20demo%20for%20Irum%20Beauty%20salon%20and%20would%20like%20to%20ask%20about%20bridal%20dates." class="btn btn-primary btn-sm">Ask about bridal dates on WhatsApp</a>
+    </section>
+
+    <section class="steps reveal reveal-delay-3">
+      <h2 class="steps-title">How booking works</h2>
+      <p class="steps-sub">Three simple steps to get your appointment confirmed.</p>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-txt"><strong>Message us on WhatsApp</strong><p>Tap Book on WhatsApp and send your name and the service you want.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-txt"><strong>Choose service and time</strong><p>Tell us your preferred day and time, and we will confirm availability.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-txt"><strong>Get your confirmation on WhatsApp</strong><p>Receive your booking confirmation right in your WhatsApp chat.</p></div>
+      </div>
+    </section>
+
+    <section class="booking reveal reveal-delay-3">
+      <h2 class="booking-title">Book an appointment</h2>
+      <p class="booking-sub">Fill in your details and we will message you on WhatsApp to confirm.</p>
+      <form id="bookingForm" class="form">
+        <div class="note">All fields are required. We will reply on WhatsApp — no phone call needed.</div>
+        <label for="bName">Your name</label>
+        <input type="text" id="bName" placeholder="e.g. Ayesha" required autocomplete="name">
+        <label for="bService">Service</label>
+        <select id="bService" required>
+          <option value="">Choose a service</option>
+          <option value="Haircut">Haircut</option>
+          <option value="Hair styling">Hair styling</option>
+          <option value="Hair color">Hair color</option>
+          <option value="Facial">Facial</option>
+          <option value="Skin cleanup">Skin cleanup</option>
+          <option value="Bridal makeup">Bridal makeup</option>
+          <option value="Party makeup">Party makeup</option>
+          <option value="Eyebrow threading">Eyebrow threading</option>
+          <option value="Mehendi">Mehendi</option>
+          <option value="Manicure">Manicure</option>
+        </select>
+        <label for="bWhen">Preferred day and time</label>
+        <input type="datetime-local" id="bWhen" required>
+        <label for="bNotes">Notes</label>
+        <textarea id="bNotes" placeholder="Anything we should know?"></textarea>
+        <div id="bErr" class="err">Please fill in all the fields so we can book for you.</div>
+        <div class="submit-wrap">
+          <button type="submit" class="btn btn-primary">Send booking request</button>
+        </div>
+        <div id="bMsg" class="msg">Opening WhatsApp with your booking details…</div>
+      </form>
+    </section>
+
+    <section class="visit reveal reveal-delay-3">
+      <h2 class="visit-title">Visit us</h2>
+      <p class="visit-sub">Find us easily in Sanghar — near OPF, School area.</p>
+      <div class="address-block">
+        <div class="address-big">mithee khoe road, school, <span>near OPF, Sanghar, Pakistan</span></div>
+        <div class="pluscode">Plus code: 2WWX+GJ Sanghar, Pakistan</div>
+        <div class="hours-line">Message us on WhatsApp for today's timings</div>
+      </div>
+      <div class="visit-actions">
+        <a href="https://www.google.com/maps/search/?api=1&query=Irum+Beauty+salon+Sanghar+Pakistan+2WWX+GJ" class="btn btn-primary">Open in Google Maps</a>
+        <a href="tel:+923313037829" class="btn btn-outline">Call now</a>
+      </div>
+      <div class="map-wrap" aria-label="Map illustration">
+        <svg width="100%" height="300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 300" role="img" aria-labelledby="mapTitle mapDesc">
+          <title id="mapTitle">Map-style illustration of Irum Beauty salon location</title>
+          <desc id="mapDesc">Abstract map showing a location pin near Sanghar plus code area; decorative only, not a real map.</desc>
+          <defs>
+            <linearGradient id="mapGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#FBEFD8"/>
+              <stop offset="100%" stop-color="#F3E8D4"/>
+            </linearGradient>
+          </defs>
+          <rect width="420" height="300" fill="url(#mapGrad)"/>
+          <!-- streets -->
+          <path d="M40 120 Q 210 120 210 260 T 380 120" fill="none" stroke="#E8DBC8" stroke-width="10" stroke-linecap="round"/>
+          <path d="M120 40 Q 120 210 300 210 T 420 210" fill="none" stroke="#E8DBC8" stroke-width="10" stroke-linecap="round"/>
+          <path d="M210 120 Q 210 210 300 210" fill="none" stroke="#E8DBC8" stroke-width="10" stroke-linecap="round"/>
+          <!-- location pin -->
+          <g transform="translate(210, 140)">
+            <path d="M0 -30 C -14 -30 -24 -18 -24 0 C -24 14 0 38 0 38 S 24 14 24 0 C 24 -18 14 -30 0 -30 Z" fill="#D99A9A"/>
+            <circle cx="0" cy="6" r="7" fill="#4B3027"/>
+          </g>
+        </svg>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+          <defs>
+            <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#4B3027"/>
+              <stop offset="100%" stop-color="#D99A9A"/>
+            </linearGradient>
+          </defs>
+          <path d="M32 4 C17 4 4 17 4 32 s13 28 28 28 28 13 28-28 S47 4 32 4" fill="none" stroke="#4B3027" stroke-width="3.5" stroke-linecap="round"/>
+          <circle cx="32" cy="32" r="1.5" fill="#D99A9A"/>
+          <text x="32" y="43" font-family="Gilda Display, serif" font-size="26" text-anchor="middle" fill="#4B3027" letter-spacing="3">IB</text>
+          <path d="M11 11 q-3 -3 -6 0 M53 53 q 3 3 6 0 M11 53 q-3 3 -6 0 M53 11 q 3 -3 6 0" fill="none" stroke="#D99A9A" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <span class="footer-name">Irum Beauty salon</span>
+      </div>
+      <div class="footer-contact">
+        <div>Sanghar, Sindh, Pakistan</div>
+        <div><a href="tel:+923313037829">+92 331 3037829</a></div>
+        <div><a href="https://wa.me/923313037829?text=Assalam%20o%20Alaikum%2C%20I%20saw%20your%20website%20demo%20for%20Irum%20Beauty%20salon%20and%20would%20like%20to%20book%20an%20appointment.">Message on WhatsApp</a></div>
+      </div>
+      <div class="footer-demo">Demo preview. Final photos, services and timings will be set together with you.</div>
+      <div class="footer-cta">
+        <a href="https://wa.me/923313037829?text=Assalam%20o%20Alaikum%2C%20I%20saw%20your%20website%20demo%20for%20Irum%20Beauty%20salon%20and%20would%20like%20to%20book%20an%20appointment." class="btn btn-primary">Book on WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/923313037829?text=Assalam%20o%20Alaikum%2C%20I%20saw%20your%20website%20demo%20for%20Irum%20Beauty%20salon%20and%20would%20like%20to%20book%20an%20appointment." class="float-wa">
+    <span class="btn btn-primary">WhatsApp</span>
+  </a>
+
+  <script>
+    (function () {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Reveal hero sections on load (one orchestrated sequence)
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+          }
+        });
+      }, { threshold: 0.12 });
+      reveals.forEach((el) => observer.observe(el));
+
+      // Hero chat animation: plays once on page load
+      const bubbleCustomer = document.getElementById('bubble-customer');
+      const typing = document.getElementById('typing');
+      const bubbleReply = document.getElementById('bubble-reply');
+
+      function playChat() {
+        if (prefersReduced) {
+          bubbleCustomer.classList.add('chat-visible');
+          bubbleReply.classList.add('chat-visible');
+          typing.style.display = 'none';
+          return;
+        }
+        setTimeout(() => { bubbleCustomer.classList.add('chat-visible'); }, 700);
+        setTimeout(() => { typing.classList.add('chat-visible'); }, 1500);
+        setTimeout(() => { typing.classList.remove('chat-visible'); typing.style.display = 'none'; bubbleReply.classList.add('chat-visible'); }, 2600);
+      }
+
+      // Play once
+      playChat();
+
+      // Booking form: open WhatsApp with prefilled message
+      const form = document.getElementById('bookingForm');
+      const err = document.getElementById('bErr');
+      const msg = document.getElementById('bMsg');
+      const btn = form.querySelector('button[type="submit"]');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        err.style.display = 'none';
+        msg.style.display = 'none';
+
+        const name = document.getElementById('bName').value.trim();
+        const service = document.getElementById('bService').value;
+        const when = document.getElementById('bWhen').value;
+        const notes = document.getElementById('bNotes').value.trim();
+
+        if (!name || !service || !when) {
+          err.style.display = 'block';
+          return;
+        }
+
+        const whenDate = new Date(when).toLocaleString('en-PK', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+        const text = 'Assalam o Alaikum, I saw your website demo for Irum Beauty salon and would like to book an appointment.\n\nName: ' + encodeURIComponent(name) + '\nService: ' + encodeURIComponent(service) + '\nPreferred day & time: ' + encodeURIComponent(whenDate) + (notes ? '\nNotes: ' + encodeURIComponent(notes) : '');
+        const url = 'https://wa.me/923313037829?text=' + encodeURIComponent(text);
+
+        btn.textContent = 'Opening WhatsApp…';
+        btn.disabled = true;
+        msg.style.display = 'block';
+        setTimeout(() => { window.open(url, '_blank'); btn.textContent = 'Send booking request'; btn.disabled = false; }, 600);
+      });
+    })();
+  </script>
+
+</body>
+</html>
